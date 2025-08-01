@@ -5,6 +5,7 @@ const longBtn = document.querySelector("#lb-btn");
 const timerText = document.querySelector("#timer-text");
 
 const pauseBtn = document.createElement("button");
+const resetBtn = document.createElement("button");
 const timerBody = document.querySelector("#sp-btns");
 
 let isPauseActive = false;
@@ -70,6 +71,8 @@ startBtn.addEventListener("click", function () {
   isPauseActive = false;
   setButtonActive(startBtn, isStartActive);
   setButtonActive(pauseBtn, isPauseActive);
+  startBtn.style.display = "none";
+  pauseBtn.style.display = "block";
   if (isPaused) {
     seconds = pasuedSec;
     minutes = pausedMin;
@@ -91,8 +94,14 @@ startBtn.addEventListener("click", function () {
   timerInterval = setInterval(countDown, 1000);
 
   timerBody.append(pauseBtn);
+  timerBody.append(resetBtn);
   pauseBtn.textContent = "PAUSE";
+  resetBtn.textContent = "RESET";
   pauseBtn.setAttribute("id", "pause-btn");
+  resetBtn.setAttribute("id", "reset-btn");
+
+  pauseBtn.style.display = "inline-block";
+  resetBtn.style.display = "inline-block";
 });
 
 shortBtn.addEventListener("click", function () {
@@ -109,8 +118,11 @@ shortBtn.addEventListener("click", function () {
   setButtonActive(shortBtn, isShortActive);
   setButtonActive(longBtn, isLongActive);
   setButtonActive(pomoBtn, isPomActive);
-  timerText.innerText = "5:00";
+  timerText.innerText = "05:00";
   mode = document.querySelector("#sb-btn");
+  startBtn.style.display = "inline-block";
+  pauseBtn.style.display = "none";
+  resetBtn.style.display = "none";
 });
 
 longBtn.addEventListener("click", function () {
@@ -129,6 +141,9 @@ longBtn.addEventListener("click", function () {
   setButtonActive(pomoBtn, isPomActive);
   timerText.innerText = "15:00";
   mode = document.querySelector("#lb-btn");
+  startBtn.style.display = "inline-block";
+  pauseBtn.style.display = "none";
+  resetBtn.style.display = "none";
 });
 
 pomoBtn.addEventListener("click", function () {
@@ -147,6 +162,9 @@ pomoBtn.addEventListener("click", function () {
   setButtonActive(pomoBtn, isPomActive);
   timerText.innerText = "25:00";
   mode = document.querySelector("#pomo-btn");
+  startBtn.style.display = "inline-block";
+  pauseBtn.style.display = "none";
+  resetBtn.style.display = "none";
 });
 
 pauseBtn.addEventListener("click", function () {
@@ -155,13 +173,42 @@ pauseBtn.addEventListener("click", function () {
     isPauseActive = true;
     setButtonActive(pauseBtn, isPauseActive);
     setButtonActive(startBtn, isStartActive);
-    mode = document.querySelector("#pause-btn");
+    pauseBtn.style.display = "none";
+    startBtn.style.display = "block";
+
     let pausedMin = minutes;
     let pasuedSec = seconds;
 
     clearTimeout(timerInterval);
     isStarted = false;
   }
+});
+
+resetBtn.addEventListener("click", function () {
+  clearTimeout(timerInterval);
+  isStarted = false;
+
+  switch (mode.textContent) {
+    case "Pomodoro":
+      minutes = 25;
+      seconds = 0;
+      timerText.innerText = "25:00";
+      break;
+    case "Short Break":
+      minutes = 5;
+      seconds = 0;
+      timerText.innerText = "05:00";
+      break;
+    case "Long Break":
+      minutes = 15;
+      seconds = 0;
+      timerText.innerText = "15:00";
+      break;
+  }
+
+  startBtn.style.display = "inline-block";
+  pauseBtn.style.display = "none";
+  resetBtn.style.display = "none";
 });
 
 //TODO JS

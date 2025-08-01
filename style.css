@@ -138,6 +138,13 @@ body {
   margin: 10px;
   cursor: pointer;
 }
+
+#sp-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #start-btn {
   font-family: "Fredoka", sans-serif;
   color: #faedcd;
@@ -162,6 +169,21 @@ body {
   margin: 0px 15px 0px 15px;
   padding: 7px 20px 7px 20px;
   cursor: pointer;
+  display: inline-block;
+}
+
+#reset-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #faedcd;
+  font-weight: bold;
+  background-color: #914e56;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 0px 15px 0px 15px;
+  padding: 7px 20px 7px 20px;
+  cursor: pointer;
+  display: inline-block;
 }
 
 /*TO DO LIST CSS */
@@ -180,14 +202,14 @@ body {
 }
 
 #main-heading {
-  text-align: center;
+  text-align: left;
   color: #2f2a35;
 }
 
 #list {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
 }
 #user-input {
   font-size: 14px;
@@ -210,7 +232,6 @@ body {
   flex-direction: column;
   text-align: left;
   list-style: none;
-  padding-left: 0px;
   color: #2f2a35;
   font-size: 20px;
   font-weight: bold;
@@ -226,14 +247,14 @@ body {
   border-radius: 15px;
   border-color: #2f2a35;
   border-style: solid;
-  margin: 10px;
+
   width: 300px;
   padding: 5px 5px 5px 15px;
 }
 
 #task-heading {
   color: #2f2a35;
-  text-align: center;
+  text-align: left;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: -20px;
