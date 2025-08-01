@@ -1,0 +1,260 @@
+body {
+  font-family: "Fredoka", sans-serif;
+  background-color: #a49cad;
+  padding: 0px;
+  margin: 0px;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 40px;
+  border-bottom: 2px solid #4d303f;
+  box-sizing: border-box;
+}
+
+#brand {
+  display: flex;
+  align-items: center;
+  margin-left: 20%;
+}
+
+#navbar-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+#main-heading {
+  color: #faedcd;
+  font-size: 28px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+#navbar-symbols {
+  height: 25px;
+  width: 25px;
+  padding: 0px 7px 0px 7px;
+}
+
+#symbols-div {
+  margin-right: 20%;
+}
+
+#main-body {
+  background-color: #e6d389;
+  width: 350px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  border-radius: 15px;
+  border-color: #505050;
+  border-style: solid;
+  box-shadow: 4px 8px 10px #505050;
+}
+
+#timer-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 25px 35px 25px;
+}
+#body-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 0px 10px;
+}
+
+#timer-text {
+  font-size: 70px;
+  color: #2f2a35;
+}
+
+#dot-container {
+  text-align: left;
+  background-color: #faedcd;
+  margin: -2px;
+  padding: 5px 0px 0px 10px;
+  border: 3px solid #505050;
+
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 2px;
+  border: 2px;
+  border-color: #505050;
+  border-style: solid;
+}
+
+#lb-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #faedcd;
+  font-weight: bold;
+  background-color: #914e56;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 7px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#sb-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #faedcd;
+  font-weight: bold;
+  background-color: #914e56;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 7px;
+  margin: 10px;
+  cursor: pointer;
+}
+#pomo-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #faedcd;
+  font-weight: bold;
+  background-color: #914e56;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 7px;
+  margin: 10px;
+  cursor: pointer;
+}
+#start-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #faedcd;
+  font-weight: bold;
+  background-color: #914e56;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 0px 15px 0px 15px;
+  padding: 7px 20px 7px 20px;
+  cursor: pointer;
+}
+
+#pause-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #faedcd;
+  font-weight: bold;
+  background-color: #914e56;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 0px 15px 0px 15px;
+  padding: 7px 20px 7px 20px;
+  cursor: pointer;
+}
+
+/*TO DO LIST CSS */
+
+#main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#toDo-body {
+  position: relative;
+  margin-top: 400px; /* Adjust this based on how tall your main-body is */
+  z-index: 2;
+  margin-bottom: 200px;
+}
+
+#main-heading {
+  text-align: center;
+  color: #2f2a35;
+}
+
+#list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#user-input {
+  font-size: 14px;
+  padding: 10px;
+  border: 3px solid #2f2a35;
+  border-radius: 5px;
+}
+
+#add-btn {
+  font-size: 18px;
+  background-color: white;
+  border: 3px solid #2f2a35;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px;
+  margin-left: 7px;
+}
+#task-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  list-style: none;
+  padding-left: 0px;
+  color: #2f2a35;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#task-list-item {
+  border: #2f2a35;
+  border-radius: 5px;
+  background-color: #ebe9dd;
+  border: 3px;
+  text-align: left;
+  border-radius: 15px;
+  border-color: #2f2a35;
+  border-style: solid;
+  margin: 10px;
+  width: 300px;
+  padding: 5px 5px 5px 15px;
+}
+
+#task-heading {
+  color: #2f2a35;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: -20px;
+}
+
+#task-remove {
+  display: none;
+}
+
+#task-done {
+  text-decoration: line-through;
+}
+#removeDone-btn {
+  font-family: "Fredoka", sans-serif;
+  color: #2f2a35;
+  font-weight: bold;
+  background-color: #e6d389;
+  border-color: #505050;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 0px 5px 0px 5px;
+  padding: 7px 7px 7px 7px;
+  cursor: pointer;
+}

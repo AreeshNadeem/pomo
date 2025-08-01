@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomo</title>
+    <link rel="stylesheet" href="pomo.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="main-section">
+      <div id="navbar">
+        <div id="brand">
+          <img src="logo.svg" id="navbar-logo" alt="pomo logo" />
+          <p id="main-heading">Pomo</p>
+        </div>
+      </div>
+
+      <div id="main-body">
+        <div id="dot-container">
+          <span class="dot" style="background-color: #bb7b85"></span>
+          <span class="dot" style="background-color: #598099"></span>
+        </div>
+        <div id="body-btns">
+          <button id="pomo-btn">Pomodoro</button>
+          <button id="sb-btn">Short Break</button>
+          <button id="lb-btn">Long Break</button>
+        </div>
+
+        <div id="timer-body">
+          <h1 id="timer-text" style="padding: 0px; margin: 30px"></h1>
+          <div id="sp-btns">
+            <button id="start-btn">START</button>
+          </div>
+        </div>
+      </div>
+      <div id="toDo-body">
+        <div id="main-heading"><h1>To-Do List</h1></div>
+        <div id="list">
+          <div>
+            <input id="user-input" type="text" placeholder="Enter Task..." />
+          </div>
+          <div><button id="add-btn">+</button></div>
+        </div>
+        <div id="task-heading"><h4>Your Tasks:</h4></div>
+
+        <div id="task-list"></div>
+      </div>
+    </div>
+    <script src="pomo.js"></script>
+  </body>
+</html>
