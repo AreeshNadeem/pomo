@@ -8,14 +8,16 @@ const pauseBtn = document.createElement("button");
 const resetBtn = document.createElement("button");
 const timerBody = document.querySelector("#sp-btns");
 
-let isPauseActive = false;
-let isStartActive = false;
-
 let isPomActive = true;
 let isShortActive = false;
 let isLongActive = false;
 
-setButtonActive(pomoBtn, isPomActive);
+var click = document.getElementById("click");
+var end = document.getElementById("end");
+
+function playAudio(sound) {
+  sound.play();
+}
 
 function setButtonActive(btn, isActive) {
   if (isActive) {
@@ -25,6 +27,13 @@ function setButtonActive(btn, isActive) {
   }
 }
 
+setButtonActive(pomoBtn, isPomActive);
+
+function initBtns() {
+  startBtn.style.display = "inline-block";
+  pauseBtn.style.display = "none";
+  resetBtn.style.display = "none";
+}
 let mode = document.querySelector("#pomo-btn");
 timerText.innerText = "25:00";
 
@@ -37,13 +46,14 @@ let timerInterval;
 
 function countDown() {
   if (minutes === 0 && seconds === 0) {
+    playAudio(end);
     clearInterval(timerInterval);
     isStarted = false;
     return;
   }
   if (seconds === 0) {
     minutes--;
-    seconds = 60;
+    seconds = 59;
   }
   seconds--;
 
@@ -59,18 +69,12 @@ function countDown() {
     minutesText = minutes.toString();
   }
 
-  if (minutes == 0) {
-    return;
-  }
   timerText.textContent = minutesText + ":" + secondsText;
 }
 
 startBtn.addEventListener("click", function () {
   if (isStarted) return;
-  isStartActive = true;
-  isPauseActive = false;
-  setButtonActive(startBtn, isStartActive);
-  setButtonActive(pauseBtn, isPauseActive);
+  playAudio(click);
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
   if (isPaused) {
@@ -106,11 +110,7 @@ startBtn.addEventListener("click", function () {
 
 shortBtn.addEventListener("click", function () {
   if (isStarted) return;
-  isStartActive = false;
-  isPauseActive = false;
-  setButtonActive(startBtn, isStartActive);
-  setButtonActive(pauseBtn, isPauseActive);
-
+  playAudio(click);
   isPomActive = false;
   isShortActive = true;
   isLongActive = false;
@@ -118,20 +118,16 @@ shortBtn.addEventListener("click", function () {
   setButtonActive(shortBtn, isShortActive);
   setButtonActive(longBtn, isLongActive);
   setButtonActive(pomoBtn, isPomActive);
+
   timerText.innerText = "05:00";
   mode = document.querySelector("#sb-btn");
-  startBtn.style.display = "inline-block";
-  pauseBtn.style.display = "none";
-  resetBtn.style.display = "none";
+
+  initBtns();
 });
 
 longBtn.addEventListener("click", function () {
   if (isStarted) return;
-  isStartActive = false;
-  isPauseActive = false;
-  setButtonActive(startBtn, isStartActive);
-  setButtonActive(pauseBtn, isPauseActive);
-
+  playAudio(click);
   isPomActive = false;
   isShortActive = false;
   isLongActive = true;
@@ -141,18 +137,12 @@ longBtn.addEventListener("click", function () {
   setButtonActive(pomoBtn, isPomActive);
   timerText.innerText = "15:00";
   mode = document.querySelector("#lb-btn");
-  startBtn.style.display = "inline-block";
-  pauseBtn.style.display = "none";
-  resetBtn.style.display = "none";
+  initBtns();
 });
 
 pomoBtn.addEventListener("click", function () {
   if (isStarted) return;
-  isStartActive = false;
-  isPauseActive = false;
-  setButtonActive(startBtn, isStartActive);
-  setButtonActive(pauseBtn, isPauseActive);
-
+  playAudio(click);
   isPomActive = true;
   isShortActive = false;
   isLongActive = false;
@@ -162,17 +152,13 @@ pomoBtn.addEventListener("click", function () {
   setButtonActive(pomoBtn, isPomActive);
   timerText.innerText = "25:00";
   mode = document.querySelector("#pomo-btn");
-  startBtn.style.display = "inline-block";
-  pauseBtn.style.display = "none";
-  resetBtn.style.display = "none";
+
+  initBtns();
 });
 
 pauseBtn.addEventListener("click", function () {
   if (isStarted) {
-    isStartActive = false;
-    isPauseActive = true;
-    setButtonActive(pauseBtn, isPauseActive);
-    setButtonActive(startBtn, isStartActive);
+    playAudio(click);
     pauseBtn.style.display = "none";
     startBtn.style.display = "block";
 
@@ -187,6 +173,8 @@ pauseBtn.addEventListener("click", function () {
 resetBtn.addEventListener("click", function () {
   clearTimeout(timerInterval);
   isStarted = false;
+
+  playAudio(click);
 
   switch (mode.textContent) {
     case "Pomodoro":
@@ -206,9 +194,7 @@ resetBtn.addEventListener("click", function () {
       break;
   }
 
-  startBtn.style.display = "inline-block";
-  pauseBtn.style.display = "none";
-  resetBtn.style.display = "none";
+  initBtns();
 });
 
 //TODO JS
