@@ -14,6 +14,7 @@ let isLongActive = false;
 
 var click = document.getElementById("click");
 var end = document.getElementById("end");
+var done = document.getElementById("done");
 
 function playAudio(sound) {
   sound.play();
@@ -53,7 +54,7 @@ function countDown() {
   }
   if (seconds === 0) {
     minutes--;
-    seconds = 59;
+    seconds = 60;
   }
   seconds--;
 
@@ -200,10 +201,17 @@ resetBtn.addEventListener("click", function () {
 //TODO JS
 const taskInput = document.querySelector("#user-input");
 const btn = document.querySelector("#add-btn");
+const taskCounter = document.getElementById("task-count");
+const taskMsg = document.getElementById("task-msg");
+
+let taskCount = 0;
 
 btn.addEventListener("click", function () {
   let userInput = taskInput.value;
   if (userInput === "") return;
+
+  taskCount++;
+  taskCounter.textContent = taskCount;
 
   const taskList = document.querySelector("#task-list");
 
@@ -214,15 +222,30 @@ btn.addEventListener("click", function () {
   span.textContent = userInput;
 
   const doneBtn = document.createElement("button");
-  doneBtn.textContent = "Done";
+  doneBtn.textContent = "✓";
+
   doneBtn.addEventListener("click", function () {
-    span.style.textDecoration = "line-through";
+    if (!taskItem.classList.contains("done")) {
+      taskItem.classList.add("done");
+      span.style.textDecoration = "line-through";
+
+      taskCount--;
+      taskCounter.textContent = taskCount;
+      doneBtn.disabled = true;
+    }
   });
 
   const removeBtn = document.createElement("button");
-  removeBtn.textContent = "Remove";
+  removeBtn.textContent = "🗑️";
+
   removeBtn.addEventListener("click", function () {
     taskItem.remove();
+    if (taskCount > 0) {
+      if (!taskItem.classList.contains("done")) {
+        taskCount--;
+        taskCounter.textContent = taskCount;
+      }
+    }
   });
 
   taskItem.appendChild(span);
