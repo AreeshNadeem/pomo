@@ -208,6 +208,7 @@ btn.addEventListener("click", function () {
   const taskList = document.querySelector("#task-list");
 
   const taskItem = document.createElement("div");
+  const taskBtns = document.createElement("div");
 
   const span = document.createElement("span");
   span.textContent = userInput;
@@ -226,8 +227,10 @@ btn.addEventListener("click", function () {
 
   taskItem.appendChild(span);
   taskItem.setAttribute("id", "task-list-item");
-  taskItem.appendChild(doneBtn);
-  taskItem.appendChild(removeBtn);
+  taskBtns.appendChild(doneBtn);
+  taskBtns.appendChild(removeBtn);
+  taskBtns.setAttribute("id", "task-btns");
+  taskItem.appendChild(taskBtns);
 
   doneBtn.setAttribute("id", "removeDone-btn");
   removeBtn.setAttribute("id", "removeDone-btn");

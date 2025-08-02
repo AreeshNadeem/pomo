@@ -4,6 +4,11 @@ body {
   padding: 0px;
   margin: 0px;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 #navbar {
   display: flex;
@@ -193,39 +198,57 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-#toDo-body {
+#toDo-main {
   position: relative;
-  margin-top: 400px; /* Adjust this based on how tall your main-body is */
   z-index: 2;
+  margin-top: 400px;
   margin-bottom: 200px;
+  background-color: rgb(216, 216, 216);
+  width: 350px;
+  border: 2px;
+  border-color: #505050;
+  border-style: solid;
+  padding: 15px;
 }
 
-#main-heading {
-  text-align: left;
-  color: #2f2a35;
+#task-heading {
+  color: black;
+  font-size: 24px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+#toDo-body {
+  background-color: white;
+  border: 2px;
+  border-color: #505050;
+  border-style: solid;
+  padding: 10px;
 }
 
 #list {
   display: flex;
-  justify-content: left;
-  align-items: left;
+  justify-content: space-between;
+  background-color: white;
 }
+
+input:focus {
+  outline: none;
+}
+
 #user-input {
   font-size: 14px;
   padding: 10px;
-  border: 3px solid #2f2a35;
-  border-radius: 5px;
+  border: none;
 }
-
 #add-btn {
-  font-size: 18px;
+  font-size: 22px;
+  color: #2f2a35;
   background-color: white;
-  border: 3px solid #2f2a35;
-  cursor: pointer;
-  border-radius: 5px;
+  border: none;
   padding: 8px;
   margin-left: 7px;
+  cursor: pointer;
 }
 #task-list {
   display: flex;
@@ -233,31 +256,22 @@ body {
   text-align: left;
   list-style: none;
   color: #2f2a35;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px;
+  font-size: 16px;
+  padding-top: 10px;
+
+  gap: 5px;
 }
 
 #task-list-item {
-  border: #2f2a35;
-  border-radius: 5px;
-  background-color: #ebe9dd;
-  border: 3px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #eaeaea;
   text-align: left;
-  border-radius: 15px;
-  border-color: #2f2a35;
-  border-style: solid;
-
-  width: 300px;
-  padding: 5px 5px 5px 15px;
-}
-
-#task-heading {
-  color: #2f2a35;
-  text-align: left;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: -20px;
+  border: none;
+  width: 300px;
+  padding: 5px 5px 5px 10px;
 }
 
 #task-remove {
@@ -267,15 +281,17 @@ body {
 #task-done {
   text-decoration: line-through;
 }
+#task-btns {
+  display: flex;
+  justify-content: right;
+}
 #removeDone-btn {
   font-family: "Fredoka", sans-serif;
+  background-color: #eaeaea;
   color: #2f2a35;
   font-weight: bold;
-  background-color: #e6d389;
-  border-color: #505050;
-  border-radius: 10px;
-  border-style: solid;
+  border: none;
   margin: 0px 5px 0px 5px;
-  padding: 7px 7px 7px 7px;
+  padding: 5px 7px 5px 7px;
   cursor: pointer;
 }
